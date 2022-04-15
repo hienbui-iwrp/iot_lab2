@@ -18,6 +18,7 @@ namespace lab2
 
         public GameObject layer1;
         public GameObject layer2;
+        public GameObject errorMes;
 
         bool ledStatus = false;
         bool pumpStatus = true; 
@@ -29,6 +30,7 @@ namespace lab2
             brokerURI.text = "mqttserver.tk";
             username.text = "bkiot";
             password.text = "12345678";
+            errorMes.SetActive(false);
         }
 
         public void updateStatus(string temp, string humi)
@@ -95,6 +97,15 @@ namespace lab2
                 pumpStatus = false;
             }
 
+        }
+
+        public void setError (bool on){
+            if (on) {
+                errorMes.SetActive(true);
+            }
+            else {
+                errorMes.SetActive(false);
+            }
         }
     }
     

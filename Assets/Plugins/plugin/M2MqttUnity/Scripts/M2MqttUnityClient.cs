@@ -286,7 +286,7 @@ namespace M2MqttUnity
                 catch (Exception e)
                 {
                     client = null;
-                    Debug.LogErrorFormat("CONNECTION FAILED! {0}", e.ToString());
+                    // Debug.LogErrorFormat("CONNECTION FAILED! {0}", e.ToString());
                     OnConnectionFailed(e.Message);
                     yield break;
                 }

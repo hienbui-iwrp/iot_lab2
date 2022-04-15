@@ -73,6 +73,7 @@ namespace lab2
             {
                 Debug.Log(e);
             }      
+            GetComponent<UIManager>().setError(false);
         }
         public void TestPublish()
         {
@@ -136,6 +137,7 @@ namespace lab2
         {
             Debug.Log("CONNECTION FAILED! " + errorMessage);
             Disconnect();
+            GetComponent<UIManager>().setError(true);
         }
 
         protected override void OnDisconnected()
@@ -161,18 +163,18 @@ namespace lab2
             Debug.Log("Received: " + msg);
             if (topic == topics[0])
             {
-                Debug.Log("status");
+                // Debug.Log("status");
                 ProcessMessageStatus(msg);
 
             }
             if (topic == topics[1])
             {
-                Debug.Log("led");
+                // Debug.Log("led");
                 ProcessMessageControlLed(msg);
             }
             if (topic == topics[2])
             {
-                Debug.Log("pump");
+                // Debug.Log("pump");
                 ProcessMessageControlPump(msg);
             }
         }
@@ -236,6 +238,8 @@ namespace lab2
             Disconnect();
             GetComponent<UIManager>().logout();
         }
+
+
 
     }
 
